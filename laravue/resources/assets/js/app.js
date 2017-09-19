@@ -1,22 +1,17 @@
-import Vue from 'vue';
+import Vue from 'vue'
 
-import VueRouter from 'vue-router';
+import VueRouter from 'vue-router'
 Vue.use(VueRouter);
 
 import VueAxios from 'vue-axios';
 import axios from 'axios';
 Vue.use(VueAxios, axios);
 
-import App from './App.vue';
-import Example from './components/Example.vue';
+import appMenuList from './components/appMenuList.vue'
 
-const routes = [
-  {
-      name: 'Example',
-      path: '/',
-      component: Example
-  }
-];
+Vue.component('app-menu-list', appMenuList);
 
-const router = new VueRouter({ mode: 'history', routes: routes});
-new Vue(Vue.util.extend({ router }, App)).$mount('#app');
+var app = new Vue({
+	el: '#app',
+	data: { }
+})

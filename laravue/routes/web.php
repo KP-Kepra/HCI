@@ -12,5 +12,9 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('test');
+});
+
+Route::prefix('api')->group(function() {
+    Route::resource('tasks', 'TaskController');
 });
