@@ -7,9 +7,14 @@ import VueAxios from 'vue-axios';
 import axios from 'axios';
 Vue.use(VueAxios, axios);
 
+import VueAgile from 'vue-agile';
+Vue.use(VueAgile);
+
 import appMenuList from './components/appMenuList.vue'
+import navBar from './components/navBar.vue'
 
 Vue.component('app-menu-list', appMenuList);
+Vue.component('nav-bar', navBar);
 
 var app = new Vue({
 	el: '#app',
