@@ -18,5 +18,31 @@ Vue.component('nav-bar', navBar);
 
 var app = new Vue({
 	el: '#app',
-	data: { }
+
+	data: {
+		view: 'v-a'
+  	},
+
+  	components: {
+    	'v-a': {
+      		template: '<div>Component A</div>'
+    	},
+    	'v-b': {
+     		template: '<div>Component B</div>'
+    	}
+  	},
+
+  	methods: {
+  		changeView: function(num){
+  			switch(num) {
+  				case 1:
+  					this.view = 'v-a';
+  					break;
+
+  				case 2:
+  					this.view = 'v-b';
+  					break;
+  			}
+  		}
+  	}
 })

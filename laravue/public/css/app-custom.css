@@ -17,28 +17,20 @@ html, body {
 	height: 100%;
 }
 
-.agile__list {
-	height: 100%;
+.agile__list,
+.agile__track,
+.agile__slide,
+.slide {
+	height: 100% !important;
 }
 
 .agile__dots {
 	position: fixed;
     bottom: 0;
     height: 7.5%;
+    align-items: center;
     width: 100%;
     margin: 0 !important;
-}
-
-.agile__dot {
-	width: 100%;
-	height: 100%;
-}
-
-.agile__dot > button {
-	border-radius: 0px !important;
-	width: 100% !important;
-	height: 100% !important;
-	color: white !important;
 }
 
 .navbar-fixed-bottom {
@@ -66,4 +58,38 @@ html, body {
 
 	-webkit-transition: background 0.7s; /* For Safari 3.0 to 6.0 */
     transition: background 0.7s;
+}
+
+@media only screen and (max-width: 800px) {
+    .navbar-nav {
+        display: none;
+    }
+}
+
+@media only screen and (min-width: 600px) {
+	.agile__dot {
+		width: 100%;
+		height: 20%;
+	}
+
+	.agile__dot > button {
+		border-radius: 0px !important;
+		width: 100% !important;
+		height: 100% !important;
+		color: white !important;
+	}
+}
+
+@media only screen and (min-width: 800px) {
+	.agile__dot {
+    	height: 100%;
+    }
+}
+
+.component-fade-enter-active, .component-fade-leave-active {
+  transition: opacity .3s ease;
+}
+.component-fade-enter, .component-fade-leave-to
+/* .component-fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
 }

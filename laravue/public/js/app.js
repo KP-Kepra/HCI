@@ -882,8 +882,34 @@ __WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('app-menu-list', __WEBPACK
 __WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('nav-bar', __WEBPACK_IMPORTED_MODULE_6__components_navBar_vue__["a" /* default */]);
 
 var app = new __WEBPACK_IMPORTED_MODULE_0_vue___default.a({
-	el: '#app',
-	data: {}
+  el: '#app',
+
+  data: {
+    view: 'v-a'
+  },
+
+  components: {
+    'v-a': {
+      template: '<div>Component A</div>'
+    },
+    'v-b': {
+      template: '<div>Component B</div>'
+    }
+  },
+
+  methods: {
+    changeView: function changeView(num) {
+      switch (num) {
+        case 1:
+          this.view = 'v-a';
+          break;
+
+        case 2:
+          this.view = 'v-b';
+          break;
+      }
+    }
+  }
 });
 
 /***/ }),
