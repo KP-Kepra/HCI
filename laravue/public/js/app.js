@@ -16242,24 +16242,27 @@ exports.push([module.i, "\n.ab-buttons-container {\n\tdisplay: block;\n}\n.ab-bu
 Vue.component('tree', __WEBPACK_IMPORTED_MODULE_0__tree_vue__["a" /* default */]);
 
 var blog_menu = {
+	2016: "Test",
+
 	2017: {
 		December: {
-			BlogA1: {
-				title: "Blog A1",
-				content: 'Component A1'
-			}
+			BlogA1: "Test"
 		},
 
 		November: {
-			BlogA2: {
-				title: "Blog A2",
-				content: 'Component A2'
-			}
+			BlogA2: "Test"
 		}
 	},
 
-	2016: "Test",
-	2015: "Test"
+	2015: {
+		December: {
+			BlogA1: "Test"
+		},
+
+		November: {
+			BlogA2: "Test"
+		}
+	}
 };
 
 /* harmony default export */ __webpack_exports__["a"] = ({
@@ -16290,7 +16293,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 /* harmony default export */ __webpack_exports__["a"] = ({
   name: 'treeview',
   props: ['data', 'link'],
-  template: '<ul>\n        <li v-for="(val, key) in data">\n            <span @click="toggle(key)">{{key}}</span>\n            <tree v-if="!isLeaf(val)" v-show="show[key]" :data="val" :link="link[key]">\n            </tree>\n        </li>\n    </ul>',
+  template: '\n    <ul>\n        <li v-for="(val, key) in data">\n            <span @click="toggle(key)">{{ key }}</span>\n            <span v-if="isLeaf(val)">{{ val }}</span>\n            \n            <tree v-if="!isLeaf(val)" v-show="show[key]" :data="val" :link="link[key]">\n            </tree>\n            \n        </li>\n    </ul>',
   data: function data() {
     return {
       show: {}
@@ -16319,10 +16322,10 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "container tl-container" }, [
+  return _c("div", { staticClass: "container ab-container" }, [
     _c(
       "div",
-      { staticClass: "tl-buttons-container" },
+      { staticClass: "ab-buttons-container" },
       [_c("tree", { attrs: { data: _vm.blog_menu, link: _vm.blog_menu } })],
       1
     ),

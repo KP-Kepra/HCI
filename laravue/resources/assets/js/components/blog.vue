@@ -2,8 +2,8 @@
 
 // HTML
 <template>
-<div class="container tl-container">
-	<div class="tl-buttons-container">
+<div class="container ab-container">
+	<div class="ab-buttons-container">
 		<tree :data="blog_menu" :link="blog_menu"></tree>
 	</div>
 
@@ -94,24 +94,27 @@ Vue.component('tree', tree);
 
 let blog_menu = 
 {
+	2016: "Test",
+	
 	2017: {
 		December: {
-			BlogA1: {
-				title: "Blog A1",
-				content: 'Component A1',
-			}
+			BlogA1: "Test",
 		},
 
 		November: {
-			BlogA2: {
-				title: "Blog A2",
-				content: 'Component A2',
-			}
+			BlogA2: "Test",
 		}
 	},
 
-	2016: "Test",
-	2015: "Test",
+	2015: {
+		December: {
+			BlogA1: "Test",
+		},
+
+		November: {
+			BlogA2: "Test",
+		}
+	},
 };
 
 export default {

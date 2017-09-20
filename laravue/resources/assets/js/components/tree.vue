@@ -5,11 +5,14 @@ export default {
     'data', 
     'link'
   ],
-  template: `<ul>
+  template: `
+    <ul>
         <li v-for="(val, key) in data">
-            <span @click="toggle(key)">{{key}}</span>
+            <span @click="toggle(key)">{{ key }}</span>
+            
             <tree v-if="!isLeaf(val)" v-show="show[key]" :data="val" :link="link[key]">
             </tree>
+            
         </li>
     </ul>`,
   data: function() {
