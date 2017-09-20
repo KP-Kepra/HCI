@@ -15,22 +15,8 @@
     <div class="container" id="app">
       <agile :arrows="false" :infinite="false">
         <div class="slide slide--1"><h3>slide 1</h3></div>
-        <div class="slide slide--2"><h3>slide 2</h3></div>
-        <div class="slide slide--3">
-
-
-        <input type="radio" v-on:click="changeView(1)" value="v-a" id="a" name="view">
-        <label>A</label>
-        <input type="radio" v-on:click="changeView(2)" value="v-b" id="b" name="view">
-        <label>B</label>
-
-
-<transition name="component-fade" mode="out-in">
-  <component v-bind:is="view"></component>
-</transition>
-
-
-</div>
+        <div class="slide slide--2"><about></about></div>
+        <div class="slide slide--3"><timeline></timeline></div>
         <div class="slide slide--4"><h3>slide 4</h3></div>
         <div class="slide slide--5"><h3>slide 5</h3></div>
       </agile>
