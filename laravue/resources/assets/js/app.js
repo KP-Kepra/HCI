@@ -14,11 +14,15 @@ import appMenuList from './components/appMenuList.vue';
 import navBar from './components/navBar.vue';
 import about from './components/about.vue';
 import timeline from './components/timeline.vue';
+import blog from './components/blog.vue';
+import tree from './components/tree.vue';
 
+Vue.component('tree', tree);
 Vue.component('app-menu-list', appMenuList);
 Vue.component('nav-bar', navBar);
 Vue.component('about', about);
 Vue.component('timeline', timeline);
+Vue.component('blog', blog);
 
 var app = new Vue({
 	el: '#app',

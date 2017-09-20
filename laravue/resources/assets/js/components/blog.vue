@@ -1,18 +1,10 @@
-// about.vue
-
+// blog.vue
 
 // HTML
 <template>
-<div class="container ab-container">
-	<div class="ab-buttons-container">
-		<div class="ab-buttons">
-			<div class="ab-button-holder" v-for="view in views">
-				<input 	type="button" 
-						class="btn btn-primary ab-button"
-						v-bind:value="view.title"
-						v-on:click="changeView(view)">
-			</div>
-		</div>
+<div class="container tl-container">
+	<div class="tl-buttons-container">
+		<tree :data="blog_menu" :link="blog_menu"></tree>
 	</div>
 
 	<div class="ab-group-container">
@@ -30,9 +22,9 @@
 		</div>
 	</transition>
 	</div>
+
 </div>
 </template>
-
 
 // CSS
 <style>
@@ -95,37 +87,39 @@
 }
 </style>
 
-
 // JS
 <script>
-var views = 
-[{
-	index: 1,
-	title: "Me",
-	year: 2015,
-	content: 'Component A1',
-},
+import tree from './tree.vue';
+Vue.component('tree', tree);
 
+let blog_menu = 
 {
-	index: 2,
-	title: "Skills",
-	year: 2016,
-	content: 'Component B1',
-},
+	2017: {
+		December: {
+			BlogA1: {
+				title: "Blog A1",
+				content: 'Component A1',
+			}
+		},
 
-{
-	index: 3,
-	title: "Ideals",
-	year: 2017,
-	content: 'Component C1',
-}];
+		November: {
+			BlogA2: {
+				title: "Blog A2",
+				content: 'Component A2',
+			}
+		}
+	},
+
+	2016: "Test",
+	2015: "Test",
+};
 
 export default {
-	name: 'timeline',
+	name: 'blog',
 	data: function(){
 		return { 
-			views,
-			id: 1,
+			blog_menu,
+			show: {},
 			text: 'Component A1'
 		};
 	},

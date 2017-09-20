@@ -17,7 +17,7 @@
         <div class="slide slide--1"><h3>slide 1</h3></div>
         <div class="slide slide--2"><about></about></div>
         <div class="slide slide--3"><timeline></timeline></div>
-        <div class="slide slide--4"><h3>slide 4</h3></div>
+        <div class="slide slide--4"><blog></blog></div>
         <div class="slide slide--5"><h3>slide 5</h3></div>
       </agile>
       <nav-bar></nav-bar>
