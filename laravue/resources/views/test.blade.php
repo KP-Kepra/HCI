@@ -7,18 +7,20 @@
     <title>Test</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.3.1/css/bulma.min.css">
     <link href="{{asset('css/app.css')}}" rel="stylesheet" type="text/css">
-    <link href="{{asset('css/app-custom.css') }}" rel="stylesheet" />
+    <link href="{{asset('css/app-custom.css')}}" rel="stylesheet" />
+    <link href="{{asset('css/hover-custom.css')}}" rel="stylesheet" />
+    <link href="{{asset('css/navigation.css')}}" rel="stylesheet" />
     <script src="https://unpkg.com/vue/dist/vue.js"></script>
   </head>
 
   <body>
     <div class="container" id="app">
       <agile :arrows="false" :infinite="false">
-        <div class="slide slide--1"><h3>slide 1</h3></div>
+        <div class="slide slide--1"><home></home></div>
         <div class="slide slide--2"><about></about></div>
         <div class="slide slide--3"><timeline></timeline></div>
         <div class="slide slide--4"><blog></blog></div>
-        <div class="slide slide--5"><h3>slide 5</h3></div>
+        <div class="slide slide--5"><contact></contact></div>
       </agile>
       <nav-bar></nav-bar>
     </div>

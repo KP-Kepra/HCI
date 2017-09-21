@@ -5,7 +5,9 @@
 <template>
 <nav class="navbar-fixed-bottom">
 	<ul class="nav-justified" width="100%">
-		<div v-for="button in buttons" v-on:click="greet" class="navbar-nav">
+		<div 	v-for="button in buttons" 
+				v-on:click="greet" 
+				class="navbar-nav">
 			{{ button.name }}
 		</div>
 	</ul>

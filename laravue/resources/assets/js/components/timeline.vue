@@ -4,28 +4,29 @@
 // HTML
 <template>
 <div class="container tl-container">
-	<div class="tl-group-container1">
+	<div class="tl-group-container content-container">
 	<transition name="expand" mode="out-in">
-		<div class="panel-group tl-group1" :key="text1">
-			<div class="panel tl-image1">
+		<div class="panel-group tl-group" :key="text1">
+			<div class="panel tl-image">
 			This is an image
 			</div>
 
-			<div class="panel tl-content1">
-				<div class="panel-heading"><h3 class="panel-title">Title 1</h3></div>
-
-				<div class="panel-body tl-content-body1"><h5>{{ text1 }}</h5></div>
+			<div class="panel tl-content">
+				<div class="panel-heading"><h2 class="panel-title">Title 1</h2></div>
+				<hr></hr>
+				<div class="panel-body tl-content-body"><h4>{{ text1 }}</h4></div>
 			</div>
 		</div>
 	</transition>
 	</div>
 
-	<div class="tl-buttons-container">
+	<div class="tl-buttons-container content-container">
 		<div class="tl-buttons">
 			<div class="tl-button-holder" v-for="view in views">
-				<input 	type="button" 
-						class="btn btn-primary tl-button"
-						v-on:click="changeView(view)">
+				<div	class="tl-button hvr-rectangle-out"
+						v-on:click="changeView(view)"
+						:class="{ activeC: isActive(view) }">
+				</div>
 			</div>
 		</div>
 
@@ -36,16 +37,16 @@
 		</div>
 	</div>
 
-  	<div class="tl-group-container2">
+  	<div class="tl-group-container content-container">
 	<transition name="expand" mode="out-in">
-		<div class="panel-group tl-group2" :key="text2">
-			<div class="panel tl-content2">
+		<div class="panel-group tl-group" :key="text2">
+			<div class="panel tl-content">
 				<div class="panel-heading"><h3 class="panel-title">Title 2</h3></div>
-
-				<div class="panel-body tl-content-body2"><h5>{{ text2 }}</h5></div>
+				<hr></hr>
+				<div class="panel-body tl-content-body"><h4>{{ text2 }}</h4></div>
 			</div>
 
-			<div class="panel tl-image2">
+			<div class="panel tl-image">
 			This is an image
 			</div>
 		</div>
@@ -57,8 +58,26 @@
 
 // CSS
 <style>
-.tl-buttons-container {
+.tl-container {
+	height: 100% !important;
 	width: 100%;
+	margin: 0px;
+}
+
+.tl-group-container {
+	background: #404040;
+}
+
+.tl-group-container,
+.tl-group {
+	height: 43%;
+	display: inline-flex;
+	width: 100%;
+	margin: 0px;
+}
+
+.tl-buttons-container {
+	height: 10%;
 	display: inline-block;
 }
 
@@ -76,43 +95,27 @@
 }
 
 .tl-button {
-	height: 25px;
-	border-radius: 100%;
-}
-
-.tl-container {
-	height: 100% !important;
-}
-
-.tl-group-container1 {
-	background: red;
-}
-
-.tl-group-container2{
-	background: blue;
-}
-
-.tl-group-container1,
-.tl-group1,
-.tl-group-container2,
-.tl-group2 {
-	width: 100%;
 	display: inline-flex;
+	background-color: #333333;
+	width: 40px;
+	height: 40px;
+	border-radius: 100%;
+	border-width: 2px !important;
+	border-style: solid;
+	border-color: #333333;
+	cursor: pointer;
 }
 
-.tl-content-body1,
-.tl-content-body2 {
+.tl-content-body {
 	width: 100%;
 }
 
-.tl-content1,
-.tl-content2 {
+.tl-content {
 	height: 30%;
 	width: 100%;
 }
 
-.tl-image1,
-.tl-image2 {
+.tl-image {
 	float: left;
 }
 
@@ -167,6 +170,7 @@ export default {
 		return { 
 			views,
 			id: 1,
+			activeC: '1',
 			text1: 'Component A1',
 			text2: 'Component A2',
 		};
@@ -177,6 +181,11 @@ export default {
   			this.id = view.index;
   			this.text1 = view.content1;
   			this.text2 = view.content2;
+  			this.activeC = view.index
+  		},
+
+  		isActive: function(menu) {
+  			return this.activeC === menu.index
   		}
   	}
 }

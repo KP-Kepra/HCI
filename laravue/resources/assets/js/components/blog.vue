@@ -2,23 +2,22 @@
 
 // HTML
 <template>
-<div class="container ab-container">
-	<div class="ab-buttons-container">
+<div class="container bl-container content-container">
+	<div class="tree-container">
+		<div class="panel-heading"><h3 class="panel-title">BLOG POSTS</h3></div>
+		<hr>
 		<tree :data="blog_menu" :link="blog_menu"></tree>
 	</div>
 
-	<div class="ab-group-container">
+	<div class="ab-group-container bl-group-container">
 	<transition name="expand" mode="out-in">
 		<div class="panel-group ab-group" :key="text">
-			<div class="panel ab-image">
-			This is an image
-			</div>
 
 			<div class="panel ab-content">
-				<div class="panel-heading"><h3 class="panel-title">Title 1</h3></div>
-
-				<div class="panel-body ab-content-body"><h5>{{ text }}</h5></div>
+				<tree-view></tree-view>
 			</div>
+
+        	
 		</div>
 	</transition>
 	</div>
@@ -28,99 +27,71 @@
 
 // CSS
 <style>
-.ab-buttons-container {
-	display: block;
-}
-
-.ab-buttons {
-	text-align: center;
-	margin: 15 0 15 0;
-}
-
-.ab-button-holder {
-	width: 25%;
-}
-
-.ab-button {
-	height: 30px;
-	width: auto;
-}
-
-.ab-container {
+.bl-container {
 	height: 100% !important;
 	display: inline-flex;
+	padding: 3%;
 }
 
-.ab-group-container {
-	background: red;
+.bl-group-container {
+	border-radius: 0 10px 10px 0;
 }
 
-.ab-group-container,
-.ab-group {
-	width: 100%;
-	display: inline-flex;
+.bl-group-container:before {
+	float: right;
+	border-radius: 0 20px 20px 0;
 }
 
-.ab-content-body {
-	width: 100%;
+.tree-container {
+	width: 30%;
+	border-width: 2px;
+	border-style: solid;
+	border-color: #404040;
+	border-radius: 10px 0 0 10px;
+	padding: 15px;
 }
 
-.ab-content {
-	height: 30%;
-	width: 100%;
+.tree-container > h3 {
+	padding-bottom: 0px;
 }
 
-.ab-image {
-	float: left;
-}
-
-.expand-enter-active, .expand-leave-active {
-	transition: opacity .5s ease-out;
-}
-
-.expand-enter, .expand-leave-to {
-	opacity: 0;
-}
-
-.expand:not(.delay) {
-	display: none;
+.tree-container > hr {
+	margin-top: 0px;
 }
 </style>
 
 // JS
 <script>
-import tree from './tree.vue';
-Vue.component('tree', tree);
-
 let blog_menu = 
 {
-	2016: "Test",
-	
 	2017: {
 		December: {
-			BlogA1: "Test",
+			"Title2": "Text2",
 		},
 
 		November: {
-			BlogA2: "Test",
+			"Title3": "Text3",
 		}
 	},
 
 	2015: {
 		December: {
-			BlogA1: "Test",
+			"Title4": "Text4",
 		},
 
 		November: {
-			BlogA2: "Test",
+			"Title5": "Text5",
 		}
 	},
+
+	"Title 1": "Text1",
 };
 
 export default {
 	name: 'blog',
 	data: function(){
 		return { 
+			id: "",
 			blog_menu,
 			show: {},
 			text: 'Component A1'

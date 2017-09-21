@@ -25,6 +25,7 @@
     },
     "dependencies": {
         "vue-agile": "^0.2.5",
+        "vue-awesome": "^2.3.3",
         "vue-json-tree-view": "^2.1.1",
         "vue-slideout-panel": "^3.0.0",
         "vue-tree-view": "^1.0.2"

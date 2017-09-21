@@ -3,31 +3,46 @@
 
 // HTML
 <template>
-<div class="container ab-container">
-	<div class="ab-buttons-container">
+<div class="container ab-container content-container">
+	<div class="ab-buttons-container ">
 		<div class="ab-buttons">
 			<div class="ab-button-holder" v-for="view in views">
-				<input 	type="button" 
-						class="btn btn-primary ab-button"
+				<div 	class="btn ab-button hvr-underline-reveal"
 						v-bind:value="view.title"
-						v-on:click="changeView(view)">
+						v-on:click="changeView(view)"
+						:class="{ activeR: isActive(view) }">
+						{{view. title}}
+				</div>
 			</div>
 		</div>
 	</div>
 
 	<div class="ab-group-container">
 	<transition name="expand" mode="out-in">
-		<div class="panel-group ab-group" :key="text">
-			<div class="panel ab-image">
-			This is an image
+		<span class="panel-group ab-group" :key="text1">
+			<div class="ab-section">
+				<div class="panel-heading ab-content-title"><h2 class="panel-title">Title 1</h2></div>
+				<hr>
+				<div class="panel-body content-body"><h4>{{ text1 }}</h4></div>
+			</div>
+			<div class="ab-section ab-image">
+				Image
+			</div>
+		</span>
+	</transition>
+
+	<transition name="expand" mode="out-in">
+		<span class="panel-group ab-group" :key="text2">
+			<div class="ab-section ab-image">
+				Image
 			</div>
 
-			<div class="panel ab-content">
-				<div class="panel-heading"><h3 class="panel-title">Title 1</h3></div>
-
-				<div class="panel-body ab-content-body"><h5>{{ text }}</h5></div>
-			</div>
-		</div>
+			<div class="ab-section">
+				<div class="panel-heading ab-content-title"><h2 class="panel-title">Title 2</h2></div>
+				<hr>
+				<div class="panel-body content-body"><h4>{{ text2 }}</h4></div>
+			</div>	
+		</span>
 	</transition>
 	</div>
 </div>
@@ -50,36 +65,66 @@
 }
 
 .ab-button {
-	height: 30px;
-	width: auto;
+	background: #242424;
+	text-align: right;
+	height: 40px;
+	vertical-align: middle;
+	min-width: calc(80px + .1vw);
+	border-radius: 0px;
 }
 
 .ab-container {
 	height: 100% !important;
+	padding: 3%;
 	display: inline-flex;
 }
 
 .ab-group-container {
-	background: red;
+	border-radius: 10px
 }
 
-.ab-group-container,
+.ab-group-container:before {
+	content: "";
+	display: block;
+	float: left;
+	border-radius: 20px 0 0 20px;
+	background-color: #3561FF;
+	width: 1%;
+	height: 100%;
+}
+
+.ab-group-container {
+	width: 100%;
+	background: #404040;
+	display: block;
+}
+
 .ab-group {
-	width: 100%;
-	display: inline-flex;
+	display: flex;
+	padding: 10px 30px 10px 30px;
+	margin: 0px;
 }
 
-.ab-content-body {
-	width: 100%;
+.ab-section {
+	float: left;
+}
+
+.ab-content-holder {
+	display: table;
 }
 
 .ab-content {
+	display: table-cell;
 	height: 30%;
 	width: 100%;
 }
 
 .ab-image {
-	float: left;
+	width: 100%;
+	height: 100%;
+	border-style: solid;
+	border-color: white;
+	border-width: 2px;
 }
 
 .expand-enter-active, .expand-leave-active {
@@ -101,23 +146,26 @@
 var views = 
 [{
 	index: 1,
-	title: "Me",
+	title: "ME",
 	year: 2015,
-	content: 'Component A1',
+	content1: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas eleifend pulvinar condimentum. Duis porta malesuada ligula, non aliquam quam tempor nec. ',
+	content2: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas eleifend pulvinar condimentum. Duis porta malesuada ligula, non aliquam quam tempor nec. ',
 },
 
 {
 	index: 2,
-	title: "Skills",
+	title: "SKILLS",
 	year: 2016,
-	content: 'Component B1',
+	content1: 'Component B1',
+	content2: 'Component B2',
 },
 
 {
 	index: 3,
-	title: "Ideals",
+	title: "IDEALS",
 	year: 2017,
-	content: 'Component C1',
+	content1: 'Component C1',
+	content2: 'Component C2',
 }];
 
 export default {
@@ -126,14 +174,22 @@ export default {
 		return { 
 			views,
 			id: 1,
-			text: 'Component A1'
+			activeR: '1',
+			text1: views[0].content1,
+			text2: views[0].content1,
 		};
 	},
 
   	methods: {
   		changeView: function(view){
   			this.id = view.index;
-  			this.text = view.content;
+  			this.text1 = view.content1;
+  			this.text2 = view.content2;
+  			this.activeR = view.index
+  		},
+
+  		isActive: function(menu) {
+  			return this.activeR === menu.index
   		}
   	}
 }
