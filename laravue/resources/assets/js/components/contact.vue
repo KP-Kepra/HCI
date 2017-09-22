@@ -7,7 +7,21 @@
 	<div class="home-title">
 		<h1>CONTACT US!</h1>
 		<hr>
-		<h2>Sub-title</h2>
+		<button type="button" class="btn btn-primary cbutton">Subscribe!</button>
+		<hr>
+		<h2>
+			<a class="link-icon" href="https://www.facebook.com/" target="_blank">
+				<img v-bind:src="pic.fb"></img></a>
+
+			<a class="link-icon" href="https://www.google.com" target="_blank">
+				<img v-bind:src="pic.g"></img></a>
+
+			<a class="link-icon" href="https://github.com/KP-Kepra" target="_blank">
+				<img v-bind:src="pic.git"></img></a>
+
+			<a class="link-icon" href="https://www.linkedin.com/in/kevin-pratama-8bab01131/" target="_blank">
+				<img v-bind:src="pic.in"></img></a>
+		</h2>
 	</div>
 </div>
 </template>
@@ -52,6 +66,19 @@ hr {
 	border-color: white;
 	border-style: solid;
 }
+
+.link-icon {
+	margin-right: 20px;
+	margin-left: 20px;
+}
+
+.link-icon > img {
+	width: 50px;
+}
+
+.cbutton {
+	width: 100% !important;
+}
 </style>
 
 
@@ -61,7 +88,13 @@ export default {
 	name: 'contact',
 	data: function(){
 		return { 
-			show: { }
+			show: { },
+			pic: {
+				fb: 	"./../../../../img/fb.png",
+				g: 		"./../../../../img/google.png",
+				git: 	"./../../../../img/github.png",
+				in:  	"./../../../../img/linkedin.png",
+			}
 		};
 	},
 

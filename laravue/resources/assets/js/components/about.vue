@@ -11,7 +11,7 @@
 						v-bind:value="view.title"
 						v-on:click="changeView(view)"
 						:class="{ activeR: isActive(view) }">
-						{{view. title}}
+						{{ view.title }}
 				</div>
 			</div>
 		</div>
@@ -21,12 +21,12 @@
 	<transition name="expand" mode="out-in">
 		<span class="panel-group ab-group" :key="text1">
 			<div class="ab-section">
-				<div class="panel-heading ab-content-title"><h2 class="panel-title">Title 1</h2></div>
+				<div class="panel-heading ab-content-title"><h2 class="panel-title">{{ title1 }}</h2></div>
 				<hr>
 				<div class="panel-body content-body"><h4>{{ text1 }}</h4></div>
 			</div>
 			<div class="ab-section ab-image">
-				Image
+				<img src="http://lorempixel.com/400/200" />
 			</div>
 		</span>
 	</transition>
@@ -34,11 +34,11 @@
 	<transition name="expand" mode="out-in">
 		<span class="panel-group ab-group" :key="text2">
 			<div class="ab-section ab-image">
-				Image
+				<img src="http://lorempixel.com/400/200" />
 			</div>
 
 			<div class="ab-section">
-				<div class="panel-heading ab-content-title"><h2 class="panel-title">Title 2</h2></div>
+				<div class="panel-heading ab-content-title"><h2 class="panel-title">{{ title2 }}</h2></div>
 				<hr>
 				<div class="panel-body content-body"><h4>{{ text2 }}</h4></div>
 			</div>	
@@ -148,6 +148,8 @@ var views =
 	index: 1,
 	title: "ME",
 	year: 2015,
+	title1: "Title1",
+	title2: "Title2",
 	content1: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas eleifend pulvinar condimentum. Duis porta malesuada ligula, non aliquam quam tempor nec. ',
 	content2: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas eleifend pulvinar condimentum. Duis porta malesuada ligula, non aliquam quam tempor nec. ',
 },
@@ -156,16 +158,20 @@ var views =
 	index: 2,
 	title: "SKILLS",
 	year: 2016,
-	content1: 'Component B1',
-	content2: 'Component B2',
+	title1: "Title3",
+	title2: "Title4",
+	content1: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse nec enim arcu. Sed ullamcorper dui ut lacinia suscipit.',
+	content2: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse nec enim arcu. Sed ullamcorper dui ut lacinia suscipit.',
 },
 
 {
 	index: 3,
 	title: "IDEALS",
 	year: 2017,
-	content1: 'Component C1',
-	content2: 'Component C2',
+	title1: "Title5",
+	title2: "Title6",
+	content1: 'Aenean rhoncus hendrerit mi, at placerat lectus finibus at. Sed eget blandit ligula, quis hendrerit ex. Nullam semper odio a interdum porttitor.',
+	content2: ',Aenean rhoncus hendrerit mi, at placerat lectus finibus at. Sed eget blandit ligula, quis hendrerit ex. Nullam semper odio a interdum porttitor.',
 }];
 
 export default {
@@ -175,6 +181,8 @@ export default {
 			views,
 			id: 1,
 			activeR: '1',
+			title1: views[0].title1,
+			title2: views[0].title2,
 			text1: views[0].content1,
 			text2: views[0].content1,
 		};
@@ -183,6 +191,8 @@ export default {
   	methods: {
   		changeView: function(view){
   			this.id = view.index;
+  			this.title1 = view.title1;
+  			this.title2 = view.title2;
   			this.text1 = view.content1;
   			this.text2 = view.content2;
   			this.activeR = view.index

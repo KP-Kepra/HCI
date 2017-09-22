@@ -15521,7 +15521,8 @@ module.exports = function listToStyles (parentId, list) {
 	name: 'home',
 	data: function data() {
 		return {
-			show: {}
+			show: {},
+			pic: "./../../../../img/kp.png"
 		};
 	},
 
@@ -15537,26 +15538,21 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "container home-container" }, [
-      _c("div", { staticClass: "home-title" }, [
-        _c("div", { staticClass: "home-logo" }),
-        _vm._v(" "),
-        _c("h1", [_vm._v("Kevin Pratama")]),
-        _vm._v(" "),
-        _c("hr"),
-        _vm._v(" "),
-        _c("h2", [_vm._v("Sub-title")])
-      ])
+  return _c("div", { staticClass: "container home-container" }, [
+    _c("div", { staticClass: "home-title" }, [
+      _c("div", { staticClass: "home-logo" }, [
+        _c("img", { attrs: { src: _vm.pic } })
+      ]),
+      _vm._v(" "),
+      _c("h1", [_vm._v("Kevin Pratama")]),
+      _vm._v(" "),
+      _c("hr"),
+      _vm._v(" "),
+      _c("h2", [_vm._v("Sub-title")])
     ])
-  }
-]
+  ])
+}
+var staticRenderFns = []
 render._withStripped = true
 var esExports = { render: render, staticRenderFns: staticRenderFns }
 /* harmony default export */ __webpack_exports__["a"] = (esExports);
@@ -15814,20 +15810,26 @@ var views = [{
 	index: 1,
 	title: "ME",
 	year: 2015,
+	title1: "Title1",
+	title2: "Title2",
 	content1: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas eleifend pulvinar condimentum. Duis porta malesuada ligula, non aliquam quam tempor nec. ',
 	content2: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas eleifend pulvinar condimentum. Duis porta malesuada ligula, non aliquam quam tempor nec. '
 }, {
 	index: 2,
 	title: "SKILLS",
 	year: 2016,
-	content1: 'Component B1',
-	content2: 'Component B2'
+	title1: "Title3",
+	title2: "Title4",
+	content1: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse nec enim arcu. Sed ullamcorper dui ut lacinia suscipit.',
+	content2: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse nec enim arcu. Sed ullamcorper dui ut lacinia suscipit.'
 }, {
 	index: 3,
 	title: "IDEALS",
 	year: 2017,
-	content1: 'Component C1',
-	content2: 'Component C2'
+	title1: "Title5",
+	title2: "Title6",
+	content1: 'Aenean rhoncus hendrerit mi, at placerat lectus finibus at. Sed eget blandit ligula, quis hendrerit ex. Nullam semper odio a interdum porttitor.',
+	content2: ',Aenean rhoncus hendrerit mi, at placerat lectus finibus at. Sed eget blandit ligula, quis hendrerit ex. Nullam semper odio a interdum porttitor.'
 }];
 
 /* harmony default export */ __webpack_exports__["a"] = ({
@@ -15837,6 +15839,8 @@ var views = [{
 			views: views,
 			id: 1,
 			activeR: '1',
+			title1: views[0].title1,
+			title2: views[0].title2,
 			text1: views[0].content1,
 			text2: views[0].content1
 		};
@@ -15845,6 +15849,8 @@ var views = [{
 	methods: {
 		changeView: function changeView(view) {
 			this.id = view.index;
+			this.title1 = view.title1;
+			this.title2 = view.title2;
 			this.text1 = view.content1;
 			this.text2 = view.content2;
 			this.activeR = view.index;
@@ -15906,7 +15912,7 @@ var render = function() {
                 _c("div", { staticClass: "ab-section" }, [
                   _c("div", { staticClass: "panel-heading ab-content-title" }, [
                     _c("h2", { staticClass: "panel-title" }, [
-                      _vm._v("Title 1")
+                      _vm._v(_vm._s(_vm.title1))
                     ])
                   ]),
                   _vm._v(" "),
@@ -15918,7 +15924,7 @@ var render = function() {
                 ]),
                 _vm._v(" "),
                 _c("div", { staticClass: "ab-section ab-image" }, [
-                  _vm._v("\n\t\t\t\tImage\n\t\t\t")
+                  _c("img", { attrs: { src: "http://lorempixel.com/400/200" } })
                 ])
               ]
             )
@@ -15930,13 +15936,13 @@ var render = function() {
               { key: _vm.text2, staticClass: "panel-group ab-group" },
               [
                 _c("div", { staticClass: "ab-section ab-image" }, [
-                  _vm._v("\n\t\t\t\tImage\n\t\t\t")
+                  _c("img", { attrs: { src: "http://lorempixel.com/400/200" } })
                 ]),
                 _vm._v(" "),
                 _c("div", { staticClass: "ab-section" }, [
                   _c("div", { staticClass: "panel-heading ab-content-title" }, [
                     _c("h2", { staticClass: "panel-title" }, [
-                      _vm._v("Title 2")
+                      _vm._v(_vm._s(_vm.title2))
                     ])
                   ]),
                   _vm._v(" "),
@@ -16266,7 +16272,7 @@ var render = function() {
         _c("transition", { attrs: { name: "expand", mode: "out-in" } }, [
           _c("div", { key: _vm.text1, staticClass: "panel-group tl-group" }, [
             _c("div", { staticClass: "panel tl-image" }, [
-              _vm._v("\n\t\t\tThis is an image\n\t\t\t")
+              _c("img", { attrs: { src: "http://lorempixel.com/400/200" } })
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "panel tl-content" }, [
@@ -16335,7 +16341,7 @@ var render = function() {
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "panel tl-image" }, [
-              _vm._v("\n\t\t\tThis is an image\n\t\t\t")
+              _c("img", { attrs: { src: "http://lorempixel.com/400/200" } })
             ])
           ])
         ])
@@ -17361,8 +17367,8 @@ if (false) {(function () {
   template: "\n  \t<div>\n      <div class=\"panel-heading\"><h3 class=\"panel-title\">{{ titleText }}</h3></div>\n      <hr>\n    \t<div class=\"panel-body content-body\">{{ contentText }}</div>\n     </div>\n  ",
   data: function data() {
     return {
-      titleText: null,
-      contentText: null
+      titleText: "Title",
+      contentText: "Placeholder text"
     };
   },
   created: function created() {
@@ -17465,7 +17471,7 @@ exports = module.exports = __webpack_require__(2)(undefined);
 
 
 // module
-exports.push([module.i, "\n.home-container {\n\tdisplay: table;\n}\n.home-title > h1 {\n\tcolor: #ffffff; \n\tfont-family: Prestij_Light_Demo; \n\tfont-size: 54px; \n\tfont-weight: 300; \n\tline-height: 58px;\n\tvertical-align: middle;\n\ttext-align: center;\n\tmargin: 0 0 0 0;\n}\n.home-title > h2 {\n\tcolor: #ABABAB;\n\tmargin: 0 0 0 0;\n}\nhr {\n    display: block;\n    height: 1px;\n    border: 0;\n    border-top: 1px solid #ccc;\n    margin: 1em 0;\n    padding: 0;\n}\n.home-logo {\n\tdisplay: inline-block;\n\twidth: 80px;\n\theight: 80px;\n\tborder-width: 2px;\n\tborder-color: white;\n\tborder-style: solid;\n}\n", ""]);
+exports.push([module.i, "\n.home-container {\n\tdisplay: table;\n}\n.home-title > h1 {\n\tcolor: #ffffff; \n\tfont-family: Prestij_Light_Demo; \n\tfont-size: 54px; \n\tfont-weight: 300; \n\tline-height: 58px;\n\tvertical-align: middle;\n\ttext-align: center;\n\tmargin: 0 0 0 0;\n}\n.home-title > h2 {\n\tcolor: #ABABAB;\n\tmargin: 0 0 0 0;\n}\nhr {\n    display: block;\n    height: 1px;\n    border: 0;\n    border-top: 1px solid #ccc;\n    margin: 1em 0;\n    padding: 0;\n}\n.home-logo {\n\tdisplay: inline-block;\n\twidth: 80px;\n\theight: 80px;\n\tborder-width: 2px;\n\tborder-color: white;\n\tborder-style: solid;\n}\n.link-icon {\n\tmargin-right: 20px;\n\tmargin-left: 20px;\n}\n.link-icon > img {\n\twidth: 50px;\n}\n.cbutton {\n\twidth: 100% !important;\n}\n", ""]);
 
 // exports
 
@@ -17533,12 +17539,45 @@ exports.push([module.i, "\n.home-container {\n\tdisplay: table;\n}\n.home-title 
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["a"] = ({
 	name: 'contact',
 	data: function data() {
 		return {
-			show: {}
+			show: {},
+			pic: {
+				fb: "./../../../../img/fb.png",
+				g: "./../../../../img/google.png",
+				git: "./../../../../img/github.png",
+				in: "./../../../../img/linkedin.png"
+			}
 		};
 	},
 
@@ -17554,24 +17593,64 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "container home-container" }, [
-      _c("div", { staticClass: "home-title" }, [
-        _c("h1", [_vm._v("CONTACT US!")]),
+  return _c("div", { staticClass: "container home-container" }, [
+    _c("div", { staticClass: "home-title" }, [
+      _c("h1", [_vm._v("CONTACT US!")]),
+      _vm._v(" "),
+      _c("hr"),
+      _vm._v(" "),
+      _c(
+        "button",
+        { staticClass: "btn btn-primary cbutton", attrs: { type: "button" } },
+        [_vm._v("Subscribe!")]
+      ),
+      _vm._v(" "),
+      _c("hr"),
+      _vm._v(" "),
+      _c("h2", [
+        _c(
+          "a",
+          {
+            staticClass: "link-icon",
+            attrs: { href: "https://www.facebook.com/", target: "_blank" }
+          },
+          [_c("img", { attrs: { src: _vm.pic.fb } })]
+        ),
         _vm._v(" "),
-        _c("hr"),
+        _c(
+          "a",
+          {
+            staticClass: "link-icon",
+            attrs: { href: "https://www.google.com", target: "_blank" }
+          },
+          [_c("img", { attrs: { src: _vm.pic.g } })]
+        ),
         _vm._v(" "),
-        _c("h2", [_vm._v("Sub-title")])
+        _c(
+          "a",
+          {
+            staticClass: "link-icon",
+            attrs: { href: "https://github.com/KP-Kepra", target: "_blank" }
+          },
+          [_c("img", { attrs: { src: _vm.pic.git } })]
+        ),
+        _vm._v(" "),
+        _c(
+          "a",
+          {
+            staticClass: "link-icon",
+            attrs: {
+              href: "https://www.linkedin.com/in/kevin-pratama-8bab01131/",
+              target: "_blank"
+            }
+          },
+          [_c("img", { attrs: { src: _vm.pic.in } })]
+        )
       ])
     ])
-  }
-]
+  ])
+}
+var staticRenderFns = []
 render._withStripped = true
 var esExports = { render: render, staticRenderFns: staticRenderFns }
 /* harmony default export */ __webpack_exports__["a"] = (esExports);

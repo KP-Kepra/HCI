@@ -8,7 +8,7 @@
 	<transition name="expand" mode="out-in">
 		<div class="panel-group tl-group" :key="text1">
 			<div class="panel tl-image">
-			This is an image
+				<img src="http://lorempixel.com/400/200" />
 			</div>
 
 			<div class="panel tl-content">
@@ -47,7 +47,7 @@
 			</div>
 
 			<div class="panel tl-image">
-			This is an image
+				<img src="http://lorempixel.com/400/200" />
 			</div>
 		</div>
 	</transition>

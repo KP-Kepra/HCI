@@ -13,8 +13,8 @@ export default {
   `,
   data: function(){
   	return {
-    	titleText: null,
-      contentText: null
+    	titleText: "Title",
+      contentText: "Placeholder text",
     }
   },
 	created: function(){

@@ -5,7 +5,7 @@
 <template>
 <div class="container home-container">
 	<div class="home-title">
-		<div class="home-logo"></div>
+		<div class="home-logo"><img v-bind:src="pic"></img></div>
 		<h1>Kevin Pratama</h1>
 		<hr>
 		<h2>Sub-title</h2>
@@ -70,7 +70,8 @@ export default {
 	name: 'home',
 	data: function(){
 		return { 
-			show: { }
+			show: { },
+			pic: "./../../../../img/kp.png",
 		};
 	},
 
