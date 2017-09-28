@@ -1,0 +1,90 @@
+/* Rectangle out */
+.hvr-rectangle-out {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px transparent;
+  position: relative;
+  -webkit-transition-property: color;
+  transition-property: color;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+}
+.hvr-rectangle-out:before, 
+.activeC:before{
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 100%;
+  background: #676767;
+  -webkit-transform: scale(.4);
+  transform: scale(.4);
+  -webkit-transition: all .1s ease-out;
+  transition: all .1s ease-out;
+}
+
+.hvr-rectangle-out:hover, 
+.hvr-rectangle-out:focus, 
+.hvr-rectangle-out:active {
+  color: white;
+}
+
+.hvr-rectangle-out:hover:before, 
+.hvr-rectangle-out:focus:before, 
+.hvr-rectangle-out:active:before, 
+.activeC:before{
+  -webkit-transform: scale(.7);
+  transform: scale(.7);
+}
+
+.activeC {
+  background: #676767 !important;
+}
+
+.activeC:before {
+  background: #3561FF;
+}
+
+/* Underline Reveal */
+.hvr-underline-reveal {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px transparent;
+  position: relative;
+  overflow: hidden;
+}
+.hvr-underline-reveal:before, 
+.activeR:before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #3561FF;
+  height: 0px;
+  transition: all .3s ease-out;
+  -webkit-transition: all .3s ease-out;
+}
+
+.hvr-underline-reveal:hover:before {
+  height: 4px;
+}
+
+.activeR {
+  color: white !important;
+  text-shadow: -.5px 0 white, 0 .5px white, .5px 0 white, 0 -.5px white;
+}
+
+.hvr-underline-reveal:focus:before, 
+.hvr-underline-reveal:active:before, 
+.activeR:before {
+  height: 100% !important;
+}
