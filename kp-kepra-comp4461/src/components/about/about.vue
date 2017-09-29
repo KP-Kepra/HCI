@@ -4,6 +4,9 @@
 // HTML
 <template>
 <div class="container ab-container content-container">
+	<div class="bg-title"><h2>ABOUT</h2></div>
+	<div class="ab-logo"><img v-bind:src="pic"></img></div>
+
 	<div class="ab-buttons-container ">
 		<div class="ab-buttons">
 			<div class="ab-button-holder" v-for="view in views">
@@ -26,7 +29,7 @@
 				<div class="panel-body content-body"><h4>{{ text1 }}</h4></div>
 			</div>
 			<div class="ab-section ab-image">
-				<img src="http://lorempixel.com/400/200" />
+				<img v-bind:src="pic1" />
 			</div>
 		</span>
 	</transition>
@@ -34,7 +37,7 @@
 	<transition name="expand" mode="out-in">
 		<span class="panel-group ab-group" :key="text2">
 			<div class="ab-section ab-image">
-				<img src="http://lorempixel.com/400/200" />
+				<img v-bind:src="pic2" />
 			</div>
 
 			<div class="ab-section">
@@ -62,21 +65,39 @@
 
 .ab-button-holder {
 	width: 25%;
+	margin-bottom: 15px;
+}
+
+.ab-logo {
+	position: absolute;
+	top: 2%;
+	left: 45.5%;
+}
+
+.ab-logo > img {
+	width: 75px;
+	height: 75px;
 }
 
 .ab-button {
 	background: #242424;
 	text-align: right;
-	height: 40px;
+	height: 50px;
 	vertical-align: middle;
-	min-width: calc(80px + .1vw);
+	min-width: calc(100px + .1vw);
 	border-radius: 0px;
+	display: table-cell;
+	letter-spacing: 5px;
+
+	font-family: Prestij_Light_Demo; 
+	font-size: 16px; 
+	font-weight: bold;
 }
 
 .ab-container {
 	height: 100% !important;
-	padding: 3%;
 	display: inline-flex;
+	margin-bottom: 0px;
 }
 
 .ab-group-container {
@@ -107,6 +128,7 @@
 
 .ab-section {
 	float: left;
+	margin: 15px;
 }
 
 .ab-content-holder {
@@ -120,11 +142,18 @@
 }
 
 .ab-image {
-	width: 100%;
-	height: 100%;
+	width: auto;
+	height: auto;
 	border-style: solid;
 	border-color: white;
 	border-width: 2px;
+}
+
+.ab-image > img {
+	max-height: 150px;
+	max-width:200px;
+	height: auto;
+	width: auto;
 }
 
 .expand-enter-active, .expand-leave-active {
@@ -179,12 +208,15 @@ export default {
 	data: function(){
 		return { 
 			views,
+			pic: require('./../../assets/kp.png'),
 			id: 1,
-			activeR: '1',
+			activeR: 1,
 			title1: views[0].title1,
 			title2: views[0].title2,
 			text1: views[0].content1,
 			text2: views[0].content1,
+			pic1: require("./bg1.png"),
+			pic2: require("./bg2.png"),
 		};
 	},
 
@@ -195,7 +227,9 @@ export default {
   			this.title2 = view.title2;
   			this.text1 = view.content1;
   			this.text2 = view.content2;
-  			this.activeR = view.index
+  			this.activeR = view.index;
+  			this.pic1 = require("./bg1.png");
+  			this.pic2 = require("./bg2.png");
   		},
 
   		isActive: function(menu) {

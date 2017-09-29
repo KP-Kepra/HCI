@@ -1,36 +1,21 @@
-.agile {
+.slides {
 	width: 100%;
-	height: 100%;
-}
+	height: 92.5%;
+	background: #212121 !important;
 
-.agile__list,
-.agile__track,
-.agile__slide,
-.slide {
-	height: 100% !important;
-}
-
-.agile__dots {
-	position: fixed;
-    bottom: 0;
-    height: 7.5%;
-    align-items: center;
-    width: 100%;
-    margin: 0 !important;
 }
 
 .slide {
 	background: #212121 !important;
 }
+
 .navbar-fixed-bottom {
 	height: 7.5%;
-	pointer-events: none;
 }
 
 .nav-justified {
 	height: 100%;
 	margin-bottom: 0px;
-	pointer-events: none;
 	padding: 0px;
 	display: table;
 }
@@ -44,57 +29,23 @@
 	display: grid !important;
 	width: 20%;
 	height: 100%;
-	background-color: none;
+	background-color: #141414 !important;
 	display: inline-grid;
 	align-items: center;
 	text-align: center;
-	pointer-events: none;
+	cursor: pointer;
 
 	-webkit-transition: background 0.5s; /* For Safari 3.0 to 6.0 */
     transition: background 0.5s;
 }
+
 @media only screen and (max-width: 800px) {
     .navbar-nav {
         display: none;
     }
 }
 @media only screen and (min-width: 600px) {
-	.agile__dot {
-		width: 100%;
-		height: 20%;
-	}
-
-	.agile__dot > button {
-		border-radius: 0px !important;
-		width: 100% !important;
-		height: 100% !important;
-		color: white !important;
-		margin: 0 !important;
-	}
 }
 
 @media only screen and (min-width: 800px) {
-	.agile__dots {
-		border-color: #212121 !important;
-		border-width: 3px 0px 0px 0px !important;
-		border-style: solid !important;
-	}
-	.agile__dot {
-    	height: 100%;
-    	margin: 0 !important;
-    	transition: .3s;
-    }
-
-   	.agile__dot > button {
-   		padding: 3px 0px 3px 0px !important;
-   		transition: .3s !important;
-   		background-color: #636363 !important;
-   	}
-
-   	.agile__dot > button:hover {
-   		background-color: #464646 !important;
-   	}
-   	.agile__dot--current > button {
-   		background-color: #464646 !important;
-   	}
 }

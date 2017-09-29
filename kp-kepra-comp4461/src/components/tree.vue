@@ -65,6 +65,11 @@ ul {
   text-align: left;
 }
 
+.tree > span {
+  font-size: 14px;
+  letter-spacing: 2px;
+}
+
 .folderT {
   text-shadow: -.5px 0 white, 0 .5px white, .5px 0 white, 0 -.5px white;
 }

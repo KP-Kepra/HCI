@@ -18,6 +18,7 @@
 <style scoped>
 .home-container {
 	display: table;
+	padding: 15px !important;
 }
 
 .home-title {

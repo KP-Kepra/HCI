@@ -5,9 +5,15 @@
 <template>
 <div class="container home-container">
 	<div class="home-title">
+		<div class="home-logo"><img v-bind:src="pic.pic"></img></div>
 		<h1>CONTACT US!</h1>
 		<hr>
-		<button type="button" class="btn btn-primary cbutton">Subscribe!</button>
+		<button type="button" class="btn btn-primary cbutton" @click="open">Subscribe!</button>
+
+		<sweet-modal icon="success" ref="modal" title="SUBSCRIBE">
+    		Success!
+		</sweet-modal>
+
 		<hr>
 		<h2>
 			<a class="link-icon" href="https://www.facebook.com/" target="_blank">
@@ -31,6 +37,15 @@
 <style>
 .home-container {
 	display: table;
+	padding: 15px !important;
+}
+
+.home-title {
+	display: table-cell;
+	text-align: center;
+	vertical-align: middle;
+	height: 100%;
+	width: 400px;
 }
 
 .home-title > h1 {
@@ -60,11 +75,16 @@ hr {
 
 .home-logo {
 	display: inline-block;
-	width: 80px;
-	height: 80px;
+	width: 84px;
+	height: 84px;
 	border-width: 2px;
 	border-color: white;
 	border-style: solid;
+}
+
+.home-logo > img {
+	width: 80px;
+	height:80px;
 }
 
 .link-icon {
@@ -78,27 +98,42 @@ hr {
 
 .cbutton {
 	width: 100% !important;
+	font-size: 20px;
+	font-family: Prestij_Light_Demo;
+	font-weight: bold;
+	letter-spacing: 2px;
 }
 </style>
 
 
 // JS
 <script>
+import { SweetModal, SweetModalTab } from 'sweet-modal-vue'
+
 export default {
 	name: 'contact',
 	data: function(){
 		return { 
 			show: { },
 			pic: {
-				fb: 	require('./../assets/fb.png'),
-				g: 		require('./../assets/google.png'),
-				git: 	require('./../assets/github.png'),
-				in:  	require('./../assets/linkedin.png'),
+				fb: 	require('./../../assets/fb.png'),
+				g: 		require('./../../assets/google.png'),
+				git: 	require('./../../assets/github.png'),
+				in:  	require('./../../assets/linkedin.png'),
+				pic: 	require('./../../assets/kp.png'),
 			}
 		};
 	},
 
   	methods: {
+  		open: function() {
+  			this.$refs.modal.open();
+  		}
+  	},
+
+  	components: {
+  		SweetModal,
+		SweetModalTab
   	}
 }
 </script>

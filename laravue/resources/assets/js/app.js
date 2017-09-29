@@ -13,7 +13,7 @@ Vue.use(VueAgile);
 import appMenuList from './components/appMenuList.vue';
 import navBar from './components/navBar.vue';
 import home from './components/home.vue';
-import about from './components/about.vue';
+import about from './components/about/about.vue';
 import timeline from './components/timeline.vue';
 import blog from './components/blog.vue';
 import tree from './components/tree.vue';

@@ -3,12 +3,15 @@
 
 // HTML
 <template>
-<div class="container tl-container">
+<div class="tl-container">
+	<div class="tl-title"><h2>WORK</h2></div>
+	<div class="tl-logo"><img v-bind:src="pic"></img></div>
+
 	<div class="tl-group-container content-container">
 	<transition name="expand" mode="out-in">
 		<div class="panel-group tl-group" :key="text1">
 			<div class="panel tl-image">
-				<img src="http://lorempixel.com/400/200" />
+				<img v-bind:src="pic1" />
 			</div>
 
 			<div class="panel tl-content">
@@ -47,7 +50,7 @@
 			</div>
 
 			<div class="panel tl-image">
-				<img src="http://lorempixel.com/400/200" />
+				<img v-bind:src="pic2" />
 			</div>
 		</div>
 	</transition>
@@ -64,8 +67,34 @@
 	margin: 0px;
 }
 
+.tl-title {
+	position: absolute;
+	color: #565656;
+	top: 42%;
+	left: 18.5%;
+
+	font-family: Prestij_Light_Demo;
+	user-select: none;
+	cursor: default;
+}
+
+.tl-title > h2 {
+	font-size: 80px;
+}
+
+.tl-logo {
+	position: absolute;
+	top: 42.5%;
+	left: 45.5%;
+}
+
+.tl-logo > img {
+	width: 75px;
+	height: 75px;
+}
+
 .tl-group-container {
-	background: #404040;
+	background-image: linear-gradient(to bottom, rgba(0,0,0,0.6) 0%,rgba(0,0,0,0.6) 100%), url('./../../assets/bg1.png');
 }
 
 .tl-group-container,
@@ -74,6 +103,12 @@
 	display: inline-flex;
 	width: 100%;
 	margin: 0px;
+}
+
+.tl-group {
+	z-index : 1;
+	padding: 20px;
+	height: 100%;
 }
 
 .tl-buttons-container {
@@ -87,11 +122,16 @@
 	display: inline-flex;
 	text-align: center;
 	margin: 15 0 15 0;
+	z-index: 2;
 }
 
 .tl-button-holder,
 .tl-label {
 	width: 25%;
+	z-index: 2;
+	color: white;
+	font-size: 15px;
+	font-family: Prestij_Light_Demo;
 }
 
 .tl-button {
@@ -117,6 +157,20 @@
 
 .tl-image {
 	float: left;
+	vertical-align: middle;
+	display: inherit;
+	height: 100%;
+	margin: 0px;
+}
+
+.tl-image > img {
+	max-height: 150px;
+	max-width:200px;
+	vertical-align: middle;
+	display: inline-block;
+	height: auto;
+	width: auto;
+	margin: auto;
 }
 
 .expand-enter-active, .expand-leave-active {
@@ -139,8 +193,8 @@ var views =
 [{
 	index: 1,
 	year: 2015,
-	content1: 'Component A1',
-	content2: 'Component A2',
+	content1: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam at purus sit amet enim tincidunt malesuada et in enim. Aliquam non felis vitae elit tempus fringilla quis sit amet quam. Donec id porta massa. Fusce tempor, dolor id pharetra pharetra, sapien sem dignissim nisi, ut ultricies massa neque vitae tortor. Suspendisse ac auctor enim. Morbi pharetra scelerisque consectetur. Suspendisse placerat risus odio, non aliquam libero commodo quis. Aliquam vel rhoncus lacus. Vestibulum sodales tellus ac mauris egestas dignissim. Donec pharetra est libero, quis gravida quam semper quis.',
+	content2: 'In eget consectetur felis, eu pretium lorem. Donec mollis mattis arcu. Sed nec elementum sem, a euismod mi. Nulla vehicula sit amet elit laoreet lobortis. In eu auctor diam. Praesent cursus vestibulum diam, at vehicula quam interdum at. Donec sed turpis orci. Nulla quis metus quam. Maecenas a ornare ante. Phasellus ullamcorper dapibus risus, ut feugiat lectus dignissim a. Nam nibh neque, mollis non vestibulum in, bibendum gravida ligula. Fusce maximus erat nec lectus ultrices scelerisque. Maecenas et eleifend est. Pellentesque sit amet accumsan purus, ut tincidunt neque. Donec congue eget metus a laoreet. Aliquam finibus mi et purus dictum luctus.',
 },
 
 {
@@ -169,10 +223,13 @@ export default {
 	data: function(){
 		return { 
 			views,
+			pic: require('./../../assets/kp.png'),
 			id: 1,
-			activeC: '1',
-			text1: 'Component A1',
-			text2: 'Component A2',
+			activeC: 1,
+			text1: views[0].content1,
+			text2: views[0].content2,
+			pic1: require("./img1.png"),
+			pic2: require("./img2.png"),
 		};
 	},
 
@@ -181,7 +238,9 @@ export default {
   			this.id = view.index;
   			this.text1 = view.content1;
   			this.text2 = view.content2;
-  			this.activeC = view.index
+  			this.activeC = view.index;
+  			this.pic1 = require("./img1.png");
+  			this.pic2 = require("./img2.png");
   		},
 
   		isActive: function(menu) {
