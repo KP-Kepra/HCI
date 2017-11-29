@@ -1,0 +1,25 @@
+.js-hue-room i {
+  cursor: pointer;
+}
+
+.hue-brightness .hue-color .hue-saturation {
+  width: 60px;
+}
+
+.hue-brightness span {
+  cursor: pointer;
+  margin-top: 38px;
+  margin-left: 5px;
+}
+
+.span-value {
+	margin-top: 15px !important;
+}
+
+.js-hue-scenes .small-buttons {
+  margin-bottom: 1em;
+}
+
+.lamp-slider {
+	margin-bottom: 2em;
+}
