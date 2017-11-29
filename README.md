@@ -1,2 +1,3 @@
 # COMP 4461 Project - Fall 2017
-Personal Webpage Repo for Human-Computer Interaction
+huedash - Project 2 directory, source : https://github.com/jcalais/huedash
+quasar - personal website for project 1
